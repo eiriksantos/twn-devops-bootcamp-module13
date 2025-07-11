@@ -3,7 +3,7 @@ def days_to_units(num_of_days, conversion_unit):
     if conversion_unit =="hours":
         return f"{num_of_days} days are {num_of_days * 24} {conversion_unit}"
     elif conversion_unit == "minutes":
-        return f"{num_of_days} days are {num_of_days * 24} {conversion_unit}"
+        return f"{num_of_days} days are {num_of_days * 24 * 60} {conversion_unit}"
     else:
         return "unsupported unit"
 
@@ -23,12 +23,12 @@ def validate_and_execute():
     except ValueError:
         print("Your input is not correct")
 
-user_input = ""
-while user_input != "exit":
+while True:
     # Input function for user input
     user_input = input("Hey user, enter a number of days and conversion unit. \n")
+    if user_input == "exit":
+        break
+
     days_and_unit = user_input.split(":")
-    print(days_and_unit)
     days_and_unit_dictionary = {"days": days_and_unit[0], "unit": days_and_unit[1]}
-    print(days_and_unit_dictionary)
     validate_and_execute()
